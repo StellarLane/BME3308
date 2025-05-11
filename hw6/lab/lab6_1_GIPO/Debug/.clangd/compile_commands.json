@@ -1,0 +1,7 @@
+[
+   {
+      "directory" : "C:/Users/stell/Downloads/6638实验箱光盘文件/光盘文件/Labs_v02/Lab01-1_GPIO/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2011/ccs/ccs_base/msp430/include\" -I\"C:/ti/ccs2011/ccs/tools/compiler/ti-cgt-msp430_4.4.8/include\" -D__MSP430F6638__ -xc",
+      "file"      : "C:/Users/stell/Downloads/6638实验箱光盘文件/光盘文件/Labs_v02/Lab01-1_GPIO/main.c"
+   }
+]
