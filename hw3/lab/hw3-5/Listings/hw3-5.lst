@@ -1,0 +1,50 @@
+A51 MACRO ASSEMBLER  HW3_5                                                                03/15/2025 20:03:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw3-5.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw3-5.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w3-5.lst) OBJECT(.\Objects\hw3-5.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP START
+                       3     
+0100                   4     ORG 0100H
+0100                   5             START:
+0100 7580FF            6             MOV P0, #0FFH
+0103 75B000            7             MOV P3, #000H
+0106 020109            8             LJMP PART1
+0109                   9             PART1:
+0109 30B206           10             JNB P3.2, PART2
+010C 30B309           11             JNB P3.3, PART3
+010F 020109           12             LJMP PART1
+0112                  13             PART2:
+                      14             
+0112 758000           15             MOV P0, #000H
+0115 020109           16             LJMP PART1
+0118                  17             PART3:
+0118 7580FF           18             MOV P0, #0FFH
+011B 020109           19             LJMP PART1
+                      20     END
+A51 MACRO ASSEMBLER  HW3_5                                                                03/15/2025 20:03:48 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PART1. . . . . . .  C ADDR   0109H   A   
+PART2. . . . . . .  C ADDR   0112H   A   
+PART3. . . . . . .  C ADDR   0118H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

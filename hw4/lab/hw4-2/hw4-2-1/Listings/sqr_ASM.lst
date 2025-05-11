@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  SQR_ASM                                                              03/30/2025 21:47:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\sqr_ASM.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE sqr_ASM.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \sqr_ASM.lst) OBJECT(.\Objects\sqr_ASM.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ?PR?FUNCTION SEGMENT CODE
+                       2     
+----                   3     RSEG ?PR?FUNCTION
+                       4     
+                       5     PUBLIC _sqr_ASM
+                       6     
+0000                   7             _sqr_ASM:
+0000 EF                8             MOV A, R7
+0001 8FF0              9             MOV B, R7
+0003 A4               10             MUL AB
+0004 FF               11             MOV R7, A
+0005 AEF0             12             MOV R6, B
+0007 ED               13             MOV A, R5
+0008 8DF0             14             MOV B, R5
+000A A4               15             MUL AB
+000B FD               16             MOV R5, A
+000C ACF0             17             MOV R4, B
+000E EF               18             MOV A, R7
+000F 2D               19             ADD A, R5
+0010 FF               20             MOV R7, A
+0011 EE               21             MOV A, R6
+0012 3C               22             ADDC A, R4
+0013 FE               23             MOV R6, A
+0014 22               24             RET
+                      25     
+                      26     END
+A51 MACRO ASSEMBLER  SQR_ASM                                                              03/30/2025 21:47:17 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?FUNCTION . . .  C SEG    0015H       REL=UNIT
+B. . . . . . . . .  D ADDR   00F0H   A   
+_SQR_ASM . . . . .  C ADDR   0000H   R   SEG=?PR?FUNCTION
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

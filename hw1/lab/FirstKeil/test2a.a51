@@ -1,0 +1,10 @@
+ORG		000h
+		LJMP	START
+		ORG		040H
+START:	MOV		SP,	#5FH
+		MOV		A,	#05H
+		MOV		B,	#03H
+		ADD		A,	B
+LOOP:	NOP
+		LJMP	LOOP
+		END;

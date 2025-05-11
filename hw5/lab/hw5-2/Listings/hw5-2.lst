@@ -1,0 +1,105 @@
+A51 MACRO ASSEMBLER  HW5_2                                                                04/13/2025 15:27:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw5-2.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw5-2.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w5-2.lst) OBJECT(.\Objects\hw5-2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP START
+                       3     
+0100                   4     ORG 0100H
+0100                   5             START:
+0100 758909            6             MOV TMOD, #00001001B
+0103 758C00            7             MOV TH0, #00H
+0106 758A00            8             MOV TL0, #00H
+0109 C2B2              9             CLR P3.2
+010B D28C             10             SETB TR0
+010D                  11             WAIT_HIGH:
+010D 30B2FD           12             JNB P3.2, WAIT_HIGH
+0110                  13             WAIT_LOW:
+0110 30B203           14             JNB P3.2, FINISH
+0113 020110           15             LJMP WAIT_LOW
+                      16             
+0116                  17             FINISH:
+0116 E58A             18             MOV A, TL0
+0118 F8               19             MOV R0, A
+0119 E58C             20             MOV A, TH0
+011B F9               21             MOV R1, A
+                      22             
+011C 759000           23             MOV P1, #0
+011F 75A000           24             MOV P2, #0
+                      25             
+0122                  26             SHOW_LED_P1:
+0122 E8               27             MOV A, R0
+0123 75F010           28             MOV B, #16
+0126 84               29             DIV AB
+0127 C0F0             30             PUSH B
+0129 75F010           31             MOV B, #16
+012C 84               32             DIV AB
+012D E5F0             33             MOV A, B
+                      34             
+012F 7B04             35             MOV R3, #4
+0131                  36             SHIFT:
+0131 23               37             RL A
+0132 DBFD             38             DJNZ R3, SHIFT
+                      39             
+0134 D0F0             40             POP B
+0136 45F0             41             ORL A, B
+0138 F590             42             MOV P1, A
+                      43     
+013A                  44             SHOW_LED_P2:
+013A E9               45             MOV A, R1
+013B 75F010           46             MOV B, #16
+013E 84               47             DIV AB
+013F C0F0             48             PUSH B
+0141 75F010           49             MOV B, #16
+0144 84               50             DIV AB
+0145 E5F0             51             MOV A, B
+                      52             
+0147 7B04             53             MOV R3, #4
+0149                  54             SHIFT2:
+0149 23               55             RL A
+014A DBFD             56             DJNZ R3, SHIFT2
+                      57             
+A51 MACRO ASSEMBLER  HW5_2                                                                04/13/2025 15:27:20 PAGE     2
+
+014C D0F0             58             POP B
+014E 45F0             59             ORL A, B
+0150 F5A0             60             MOV P2, A
+                      61             
+0152 020100           62             LJMP START
+                      63     END
+A51 MACRO ASSEMBLER  HW5_2                                                                04/13/2025 15:27:20 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+FINISH . . . . . .  C ADDR   0116H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SHIFT. . . . . . .  C ADDR   0131H   A   
+SHIFT2 . . . . . .  C ADDR   0149H   A   
+SHOW_LED_P1. . . .  C ADDR   0122H   A   
+SHOW_LED_P2. . . .  C ADDR   013AH   A   
+START. . . . . . .  C ADDR   0100H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT_HIGH. . . . .  C ADDR   010DH   A   
+WAIT_LOW . . . . .  C ADDR   0110H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

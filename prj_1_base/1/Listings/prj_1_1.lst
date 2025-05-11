@@ -1,0 +1,256 @@
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/13/2025 06:41:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\prj_1_1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE prj_1_1.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \prj_1_1.lst) OBJECT(.\Objects\prj_1_1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP INIT
+                       3     
+0100                   4     ORG 0100H
+0100                   5             INIT:
+0100 759850            6             MOV SCON, #50H
+0103 758920            7             MOV TMOD, #20H
+0106 758DFD            8             MOV TH1, #0FDH
+0109 758BFD            9             MOV TL1, #0FDH
+010C D28E             10             SETB TR1
+010E D2AC             11             SETB ES
+0110 D2AF             12             SETB EA
+                      13     
+0112                  14             START:
+0112 900000           15             MOV DPTR, #0000H
+0115 F0               16             MOVX @DPTR, A
+0116 E0               17             MOVX A, @DPTR
+0117 F530             18             MOV 30H, A
+0119 8000             19             JMP NEXT
+                      20             
+011B                  21             NEXT:
+011B E530             22             MOV A, 30H
+011D 75F002           23             MOV B, #02H
+0120 A4               24             MUL AB
+0121 75F002           25             MOV B, #02H
+0124 95F0             26             SUBB A, B
+0126 120223           27             LCALL SEND_TMP
+0129 75F00A           28             MOV B, #10
+012C 84               29             DIV AB
+012D C0F0             30             PUSH B
+012F 75F00A           31             MOV B, #10
+0132 84               32             DIV AB
+0133 C0F0             33             PUSH B
+0135 75F00A           34             MOV B, #10
+0138 84               35             DIV AB
+0139 E5F0             36             MOV A, B
+                      37             
+013B                  38             N30:
+013B 2402             39             ADD A, #02
+013D B40004           40             CJNE A, #0, N31
+0140 7AC0             41             MOV R2, #11000000B
+0142 803A             42             JMP N20
+0144                  43             N31:
+0144 B40104           44             CJNE A, #1, N32
+0147 7ACF             45             MOV R2, #11001111B
+0149 8033             46             JMP N20
+014B                  47             N32:
+014B B40204           48             CJNE A, #2, N33
+014E 7AA4             49             MOV R2, #10100100B
+0150 802C             50             JMP N20
+0152                  51             N33:
+0152 B40304           52             CJNE A, #3, N34
+0155 7AB0             53             MOV R2, #10110000B
+0157 8025             54             JMP N20
+0159                  55             N34:
+0159 B40404           56             CJNE A, #4, N35
+015C 7A99             57             MOV R2, #10011001B
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/13/2025 06:41:04 PAGE     2
+
+015E 801E             58             JMP N20
+0160                  59             N35:
+0160 B40504           60             CJNE A, #5, N36
+0163 7A92             61             MOV R2, #10010010B
+0165 8017             62             JMP N20
+0167                  63             N36:
+0167 B40604           64             CJNE A, #6, N37
+016A 7A82             65             MOV R2, #10000010B
+016C 8010             66             JMP N20
+016E                  67             N37:
+016E B40704           68             CJNE A, #7, N38
+0171 7AF8             69             MOV R2, #11111000B
+0173 8009             70             JMP N20
+0175                  71             N38:
+0175 B40804           72             CJNE A, #8, N39
+0178 7A80             73             MOV R2, #10000000B
+017A 8002             74             JMP N20
+017C                  75             N39:
+017C 7A90             76             MOV R2, #10010000B
+                      77             
+                      78             
+017E                  79             N20:
+017E D0F0             80             POP B
+0180 E5F0             81             MOV A, B
+0182 B40004           82             CJNE A, #0, N21
+0185 7B40             83             MOV R3, #01000000B
+0187 803A             84             JMP N10
+0189                  85             N21:
+0189 B40104           86             CJNE A, #1, N22
+018C 7B4F             87             MOV R3, #01001111B
+018E 8033             88             JMP N10
+0190                  89             N22:
+0190 B40204           90             CJNE A, #2, N23
+0193 7B24             91             MOV R3, #00100100B
+0195 802C             92             JMP N10
+0197                  93             N23:
+0197 B40304           94             CJNE A, #3, N24
+019A 7B30             95             MOV R3, #00110000B
+019C 8025             96             JMP N10
+019E                  97             N24:
+019E B40404           98             CJNE A, #4, N25
+01A1 7B19             99             MOV R3, #00011001B
+01A3 801E            100             JMP N10
+01A5                 101             N25:
+01A5 B40504          102             CJNE A, #5, N26
+01A8 7B12            103             MOV R3, #00010010B
+01AA 8017            104             JMP N10
+01AC                 105             N26:
+01AC B40604          106             CJNE A, #6, N27
+01AF 7B02            107             MOV R3, #00000010B
+01B1 8010            108             JMP N10
+01B3                 109             N27:
+01B3 B40704          110             CJNE A, #7, N28
+01B6 7B78            111             MOV R3, #01111000B
+01B8 8009            112             JMP N10
+01BA                 113             N28:
+01BA B40804          114             CJNE A, #8, N29
+01BD 7B00            115             MOV R3, #00000000B
+01BF 8002            116             JMP N10
+01C1                 117             N29:
+01C1 7B10            118             MOV R3, #00010000B
+                     119             
+                     120             
+01C3                 121             N10:
+01C3 D0F0            122             POP B
+01C5 E5F0            123             MOV A, B
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/13/2025 06:41:04 PAGE     3
+
+01C7 B40004          124             CJNE A, #0, N11
+01CA 7CC0            125             MOV R4, #11000000B
+01CC 803A            126             JMP LOOOP
+01CE                 127             N11:
+01CE B40104          128             CJNE A, #1, N12
+01D1 7CCF            129             MOV R4, #11001111B
+01D3 8033            130             JMP LOOOP
+01D5                 131             N12:
+01D5 B40204          132             CJNE A, #2, N13
+01D8 7CA4            133             MOV R4, #10100100B
+01DA 802C            134             JMP LOOOP
+01DC                 135             N13:
+01DC B40304          136             CJNE A, #3, N14
+01DF 7CB0            137             MOV R4, #10110000B
+01E1 8025            138             JMP LOOOP
+01E3                 139             N14:
+01E3 B40404          140             CJNE A, #4, N15
+01E6 7C99            141             MOV R4, #10011001B
+01E8 801E            142             JMP LOOOP
+01EA                 143             N15:
+01EA B40504          144             CJNE A, #5, N16
+01ED 7C92            145             MOV R4, #10010010B
+01EF 8017            146             JMP LOOOP
+01F1                 147             N16:
+01F1 B40604          148             CJNE A, #6, N17
+01F4 7C82            149             MOV R4, #10000010B
+01F6 8010            150             JMP LOOOP
+01F8                 151             N17:
+01F8 B40704          152             CJNE A, #7, N18
+01FB 7CF8            153             MOV R4, #11111000B
+01FD 8009            154             JMP LOOOP
+01FF                 155             N18:
+01FF B40804          156             CJNE A, #8, N19
+0202 7C80            157             MOV R4, #10000000B
+0204 8002            158             JMP LOOOP
+0206                 159             N19:
+0206 7C90            160             MOV R4, #10010000B
+                     161             
+0208                 162             LOOOP:
+0208 75A012          163             MOV P2, #00010010B
+020B 8A90            164             MOV P1, R2
+020D 7590FF          165             MOV P1, #11111111B
+0210 75A014          166             MOV P2, #00010100B
+0213 8B90            167             MOV P1, R3
+0215 7590FF          168             MOV P1, #11111111B
+0218 75A018          169             MOV P2, #00011000B
+021B 8C90            170             MOV P1, R4
+021D 7590FF          171             MOV P1, #11111111B
+0220 020112          172             LJMP START
+                     173             
+0223                 174             SEND_TMP:
+0223 F599            175             MOV SBUF, A
+0225 3099FD          176             JNB TI, $
+0228 C299            177             CLR TI
+022A 22              178             RET
+                     179             
+                     180             
+                     181     END
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/13/2025 06:41:04 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+INIT . . . . . . .  C ADDR   0100H   A   
+LOOOP. . . . . . .  C ADDR   0208H   A   
+N10. . . . . . . .  C ADDR   01C3H   A   
+N11. . . . . . . .  C ADDR   01CEH   A   
+N12. . . . . . . .  C ADDR   01D5H   A   
+N13. . . . . . . .  C ADDR   01DCH   A   
+N14. . . . . . . .  C ADDR   01E3H   A   
+N15. . . . . . . .  C ADDR   01EAH   A   
+N16. . . . . . . .  C ADDR   01F1H   A   
+N17. . . . . . . .  C ADDR   01F8H   A   
+N18. . . . . . . .  C ADDR   01FFH   A   
+N19. . . . . . . .  C ADDR   0206H   A   
+N20. . . . . . . .  C ADDR   017EH   A   
+N21. . . . . . . .  C ADDR   0189H   A   
+N22. . . . . . . .  C ADDR   0190H   A   
+N23. . . . . . . .  C ADDR   0197H   A   
+N24. . . . . . . .  C ADDR   019EH   A   
+N25. . . . . . . .  C ADDR   01A5H   A   
+N26. . . . . . . .  C ADDR   01ACH   A   
+N27. . . . . . . .  C ADDR   01B3H   A   
+N28. . . . . . . .  C ADDR   01BAH   A   
+N29. . . . . . . .  C ADDR   01C1H   A   
+N30. . . . . . . .  C ADDR   013BH   A   
+N31. . . . . . . .  C ADDR   0144H   A   
+N32. . . . . . . .  C ADDR   014BH   A   
+N33. . . . . . . .  C ADDR   0152H   A   
+N34. . . . . . . .  C ADDR   0159H   A   
+N35. . . . . . . .  C ADDR   0160H   A   
+N36. . . . . . . .  C ADDR   0167H   A   
+N37. . . . . . . .  C ADDR   016EH   A   
+N38. . . . . . . .  C ADDR   0175H   A   
+N39. . . . . . . .  C ADDR   017CH   A   
+NEXT . . . . . . .  C ADDR   011BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SEND_TMP . . . . .  C ADDR   0223H   A   
+START. . . . . . .  C ADDR   0112H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

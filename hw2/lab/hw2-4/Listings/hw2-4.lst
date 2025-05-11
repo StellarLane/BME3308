@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  HW2_4                                                                03/04/2025 14:36:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw2-4.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw2-4.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w2-4.lst) OBJECT(.\Objects\hw2-4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020040            2     LJMP START
+0040                   3     ORG 040H
+                       4             
+0040                   5             START:
+0040 75815F            6             MOV     SP,     #5FH
+0043 7469              7         MOV         A,      #69H 
+0045 75F012            8         MOV         B,  #12H
+0048 C0E0              9         PUSH        ACC
+004A C0F0             10         PUSH        B
+004C 7400             11             MOV     A,      #0H 
+004E 75F000           12         MOV         B,  #0H
+0051 D0F0             13         POP         B
+0053 D0E0             14         POP         ACC
+                      15             
+0055                  16             LOOP:
+0055 00               17             NOP
+0056 020055           18         LJMP        LOOP
+                      19             END
+A51 MACRO ASSEMBLER  HW2_4                                                                03/04/2025 14:36:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+LOOP . . . . . . .  C ADDR   0055H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

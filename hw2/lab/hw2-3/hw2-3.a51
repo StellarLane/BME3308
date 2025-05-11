@@ -1,0 +1,11 @@
+LJMP START
+ORG 040H
+	
+	START:	 
+	MOV SP, #5FH 
+	
+	LOOP:  	
+	NOP
+	LJMP LOOP
+
+END 

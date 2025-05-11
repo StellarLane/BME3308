@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  HW4_1_3                                                              03/30/2025 17:24:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw4-1-3.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw4-1-3.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \hw4-1-3.lst) OBJECT(.\Objects\hw4-1-3.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020050            2     LJMP START
+                       3     
+0050                   4     ORG 0050H
+0050                   5             START:
+0050 B290              6             CPL P1.0
+0052                   7             DEL:
+0052 7FC8              8             MOV R7, #200    ;1MC
+0054                   9             DEL1:
+0054 7E7B             10             MOV R6, #123    ;1MC
+0056 DEFE             11             DJNZ R6, $              ;2MC
+0058 DFFA             12             DJNZ R7, DEL1   ;2MC
+005A 020050           13             LJMP START              ;2MC
+                      14             
+                      15     END
+A51 MACRO ASSEMBLER  HW4_1_3                                                              03/30/2025 17:24:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0052H   A   
+DEL1 . . . . . . .  C ADDR   0054H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0050H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,123 @@
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/15/2025 08:32:22 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\prj_1_1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE prj_1_1.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \prj_1_1.lst) OBJECT(.\Objects\prj_1_1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP INIT
+                       3     
+0100                   4     ORG 0100H
+0100                   5             INIT:
+0100 759850            6             MOV SCON, #50H
+0103 758920            7             MOV TMOD, #20H
+0106 758DFD            8             MOV TH1, #0FDH
+0109 758BFD            9             MOV TL1, #0FDH
+010C D28E             10             SETB TR1
+010E D2AC             11             SETB ES
+0110 D2AF             12             SETB EA
+0112 C2B5             13             CLR P3.5
+0114 759000           14             MOV P1, #0
+0117 75A000           15             MOV P2, #0
+                      16     
+011A                  17             START:
+011A 900000           18             MOV DPTR, #0000H
+011D F0               19             MOVX @DPTR, A
+011E 7C40             20             MOV R4, #64
+0120 DCFE             21             DJNZ R4, $
+0122 E0               22             MOVX A, @DPTR
+0123 B4FC05           23             CJNE A, #0FCH, CHECK_1
+0126 D2B5             24             SETB P3.5
+0128 02011A           25             LJMP START
+012B                  26             CHECK_1:
+012B B4FE05           27             CJNE A, #0FEH, CHECK_2
+012E D2B5             28             SETB P3.5
+0130 02011A           29             LJMP START
+0133                  30             CHECK_2:
+0133 B48005           31             CJNE A, #080H, CHECK_3
+0136 D2B5             32             SETB P3.5
+0138 02011A           33             LJMP START
+013B                  34             CHECK_3:
+013B 7005             35             JNZ CONTINUE
+013D D2B5             36             SETB P3.5
+013F 02011A           37             LJMP START
+                      38             
+0142                  39             CONTINUE:
+0142 C2B5             40             CLR P3.5
+0144 75F002           41             MOV B, #02H
+0147 A4               42             MUL AB
+0148 75F002           43             MOV B, #02H
+014B 95F0             44             SUBB A, B
+014D 120171           45             LCALL SEND_TMP
+                      46             
+0150 C0E0             47             PUSH ACC
+0152 12015A           48             LCALL SHOW_LED
+0155 D0E0             49             POP ACC
+0157 02011A           50             LJMP START
+                      51             
+015A                  52             SHOW_LED:
+015A 75F00A           53             MOV B, #10
+015D 84               54             DIV AB
+015E 85F0A0           55             MOV P2, B
+0161 75F00A           56             MOV B, #10
+0164 84               57             DIV AB
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/15/2025 08:32:22 PAGE     2
+
+0165 2402             58             ADD A, #02
+0167 7904             59             MOV R1, #04
+0169                  60             SHIFT:
+0169 23               61             RL A
+016A D9FD             62             DJNZ R1, SHIFT
+016C 45F0             63             ORL A, B
+016E F590             64             MOV P1, A
+0170 22               65             RET
+                      66             
+0171                  67             SEND_TMP:
+0171 F599             68             MOV SBUF, A
+0173 3099FD           69             JNB TI, $
+0176 C299             70             CLR TI
+0178 22               71             RET
+                      72             
+                      73             
+                      74     END
+A51 MACRO ASSEMBLER  PRJ_1_1                                                              04/15/2025 08:32:22 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CHECK_1. . . . . .  C ADDR   012BH   A   
+CHECK_2. . . . . .  C ADDR   0133H   A   
+CHECK_3. . . . . .  C ADDR   013BH   A   
+CONTINUE . . . . .  C ADDR   0142H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+INIT . . . . . . .  C ADDR   0100H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SEND_TMP . . . . .  C ADDR   0171H   A   
+SHIFT. . . . . . .  C ADDR   0169H   A   
+SHOW_LED . . . . .  C ADDR   015AH   A   
+START. . . . . . .  C ADDR   011AH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

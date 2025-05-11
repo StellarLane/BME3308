@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  PRJ_1_2                                                              04/13/2025 06:45:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\prj_1_2.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE prj_1_2.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \prj_1_2.lst) OBJECT(.\Objects\prj_1_2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP INIT
+                       3     
+0100                   4     ORG 0100H
+0100                   5             INIT:
+0100 759850            6             MOV SCON, #50H
+0103 758920            7             MOV TMOD, #20H
+0106 758DFD            8             MOV TH1, #0FDH
+0109 758BFD            9             MOV TL1, #0FDH
+010C D28E             10             SETB TR1
+010E D2AC             11             SETB ES
+0110 D2AF             12             SETB EA
+0112 759000           13             MOV P1, #0H
+                      14     
+0115                  15             MAIN:
+0115 C290             16             CLR P1.0
+0117 C293             17             CLR P1.3
+0119 D292             18             SETB P1.2
+011B 3098FD           19             JNB RI, $
+011E C298             20             CLR RI
+0120 E599             21             MOV A, SBUF
+0122 B4AC03           22             CJNE A, #0ACH, CHECK
+0125 020115           23             LJMP MAIN
+                      24             
+0128                  25             CHECK:
+0128 40EB             26             JC MAIN
+012A C292             27             CLR P1.2
+012C D293             28             SETB P1.3
+012E D290             29             SETB P1.0
+0130 120136           30             LCALL DELAY
+0133 020115           31             LJMP MAIN
+                      32             
+0136                  33             DELAY:
+0136 7FC8             34             MOV R7, #200
+0138                  35             D1:
+0138 DFFE             36             DJNZ R7, D1
+013A 22               37             RET
+                      38     END
+A51 MACRO ASSEMBLER  PRJ_1_2                                                              04/13/2025 06:45:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   0128H   A   
+D1 . . . . . . . .  C ADDR   0138H   A   
+DELAY. . . . . . .  C ADDR   0136H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+INIT . . . . . . .  C ADDR   0100H   A   
+MAIN . . . . . . .  C ADDR   0115H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

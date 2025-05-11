@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 03/30/2025 22:42:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG PRINT(.\Listings\ma
+                      in.lst) OBJECT(.\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+0000                   2     ORG 0000H
+0000 020000   F        3     LJMP MAIN
+                       4     
+                       5     
+                       6     ?PR?MAIN SEGMENT CODE
+----                   7             RSEG    ?PR?MAIN
+                       8     EXTRN CODE (SQR)
+                       9     
+0100                  10     ORG 0100H
+0100                  11             MAIN:
+0100 7D03             12             MOV R5, #03
+0102 7F04             13             MOV R7, #04
+0104 120000   F       14             LCALL SQR
+                      15             
+                      16     END
+A51 MACRO ASSEMBLER  MAIN                                                                 03/30/2025 22:42:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?MAIN . . . . .  C SEG    0107H       REL=UNIT
+MAIN . . . . . . .  C ADDR   0100H   R   SEG=?PR?MAIN
+SQR. . . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

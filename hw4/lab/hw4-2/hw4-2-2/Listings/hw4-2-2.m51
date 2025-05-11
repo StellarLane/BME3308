@@ -1,0 +1,76 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    03/30/2025  22:58:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\USERS\STELL\APPDATA\LOCAL\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\sqr.obj TO .\Objects\hw4-2-2 PRINT (
+>> .\Listings\hw4-2-2.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\sqr.obj (SQR)
+
+
+LINK MAP OF MODULE:  .\Objects\hw4-2-2 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     1019H     UNIT         ?PR?SQR
+            CODE    1819H     0107H     UNIT         ?PR?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\hw4-2-2 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:1819H         SEGMENT       ?PR?MAIN
+  C:1919H         SYMBOL        MAIN
+  C:0000H         LINE#         3
+  C:1919H         LINE#         12
+  C:191BH         LINE#         13
+  C:191DH         LINE#         14
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        SQR
+  C:0800H         SEGMENT       ?PR?SQR
+  C:1800H         PUBLIC        SQR
+  D:00F0H         SYMBOL        B
+  C:1800H         LINE#         9
+  C:1801H         LINE#         10
+  C:1803H         LINE#         11
+  C:1804H         LINE#         12
+  C:1805H         LINE#         13
+  C:1807H         LINE#         14
+  C:1808H         LINE#         15
+  C:180AH         LINE#         16
+  C:180BH         LINE#         17
+  C:180DH         LINE#         18
+  C:180FH         LINE#         19
+  C:1811H         LINE#         20
+  C:1812H         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/30/2025  22:58:46  PAGE 2
+
+
+  C:1813H         LINE#         22
+  C:1815H         LINE#         23
+  C:1817H         LINE#         24
+  C:1818H         LINE#         25
+  -------         ENDMOD        SQR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0023H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=4387
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

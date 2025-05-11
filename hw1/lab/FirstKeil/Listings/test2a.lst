@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  TEST2A                                                               02/20/2025 20:47:12 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\test2a.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE test2a.a51 SET(SMALL) DEBUG PRINT(.\Listings\
+                      test2a.lst) OBJECT(.\Objects\test2a.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG             000h
+0000 020040            2                     LJMP    START
+0040                   3                     ORG             040H
+0040 75815F            4     START:  MOV             SP,     #5FH
+0043 7405              5                     MOV             A,      #05H
+0045 75F003            6                     MOV             B,      #03H
+0048 25F0              7                     ADD             A,      B
+004A 00                8     LOOP:   NOP
+004B 02004A            9                     LJMP    LOOP
+                      10                     END;
+A51 MACRO ASSEMBLER  TEST2A                                                               02/20/2025 20:47:12 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+LOOP . . . . . . .  C ADDR   004AH   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

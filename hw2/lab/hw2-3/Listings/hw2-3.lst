@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  HW2_3                                                                03/04/2025 11:37:35 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw2-3.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw2-3.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w2-3.lst) OBJECT(.\Objects\hw2-3.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000 020040            1     LJMP START
+0040                   2     ORG 040H
+                       3             
+0040                   4             START:   
+0040 75815F            5             MOV SP, #5FH 
+                       6             
+0043                   7             LOOP:   
+0043 00                8             NOP
+0044 020043            9             LJMP LOOP
+                      10     
+                      11     END 
+A51 MACRO ASSEMBLER  HW2_3                                                                03/04/2025 11:37:35 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0043H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

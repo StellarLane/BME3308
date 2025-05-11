@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  HW5_1_1                                                              04/08/2025 09:25:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw5-1-1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw5-1-1.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \hw5-1-1.lst) OBJECT(.\Objects\hw5-1-1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020030            2     LJMP INIT
+                       3     
+0030                   4     ORG 0030H
+0030                   5             INIT:
+0030 758920            6             MOV TMOD, #20H
+0033 758DFD            7             MOV TH1, #0FDH
+0036 758BFD            8             MOV TL1, #0FDH
+0039 D28E              9             SETB TR1
+003B 759850           10             MOV SCON, #50H
+003E D2AC             11             SETB ES
+0040 D2AF             12             SETB EA
+                      13             
+0042                  14             MAIN:
+0042 3098FD           15             JNB RI, $
+0045 C298             16             CLR RI
+0047 E599             17             MOV A, SBUF
+0049 900051           18             MOV DPTR, #LED_CODE
+004C 93               19             MOVC A, @A+DPTR
+004D F580             20             MOV P0, A
+004F 80F1             21             SJMP MAIN
+                      22             
+0051                  23             LED_CODE:
+0051 3F065B4F         24             DB 0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
+0055 666D7D07                
+0059 7F6F                    
+                      25     END
+                                     
+                                     
+                                     
+A51 MACRO ASSEMBLER  HW5_1_1                                                              04/08/2025 09:25:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+INIT . . . . . . .  C ADDR   0030H   A   
+LED_CODE . . . . .  C ADDR   0051H   A   
+MAIN . . . . . . .  C ADDR   0042H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

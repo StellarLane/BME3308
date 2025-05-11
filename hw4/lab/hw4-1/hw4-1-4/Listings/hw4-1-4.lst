@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  HW4_1_4                                                              03/30/2025 19:04:35 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw4-1-4.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw4-1-4.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \hw4-1-4.lst) OBJECT(.\Objects\hw4-1-4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020050            2     LJMP START
+                       3     
+0050                   4     ORG 0050H
+0050                   5             START:
+0050 753012            6             MOV 30H, #12H
+0053 753134            7             MOV 31H, #34H
+0056 753256            8             MOV 32H, #56H
+0059 753324            9             MOV 33H, #24H ; '$'
+                      10             
+                      11             
+005C 7830             12             MOV R0, #0030H
+005E 902000           13             MOV DPTR, #2000H
+0061                  14             LOOP1:
+0061 E6               15             MOV A, @R0
+0062 B42402           16             CJNE A, #24H, LOOP2
+0065 80FE             17             SJMP $
+0067                  18             LOOP2:
+0067 F0               19             MOVX @DPTR, A
+0068 C0E0             20             PUSH ACC
+006A 7400             21             MOV A, #00H
+006C E0               22             MOVX A, @DPTR
+006D F9               23             MOV R1, A
+006E D0E0             24             POP ACC
+0070 08               25             INC R0
+0071 A3               26             INC DPTR
+0072 80ED             27             SJMP LOOP1
+                      28             
+                      29     END
+A51 MACRO ASSEMBLER  HW4_1_4                                                              03/30/2025 19:04:35 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+LOOP1. . . . . . .  C ADDR   0061H   A   
+LOOP2. . . . . . .  C ADDR   0067H   A   
+START. . . . . . .  C ADDR   0050H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

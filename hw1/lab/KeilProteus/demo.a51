@@ -1,0 +1,15 @@
+			ORG		0000H
+			AJMP	START
+			ORG		0003H
+			
+START:		CLR		P1.0
+			CLR 	P1.7
+		
+LIGHT: 		JB P1.0,LIGHT_ON
+			CLR		P1.7
+			SJMP	LIGHT
+		
+LIGHT_ON:	SETB P1.7
+			SJMP LIGHT
+			
+			END

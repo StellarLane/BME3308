@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  DEMO                                                                 02/19/2025 20:06:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\demo.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE demo.a51 SET(SMALL) DEBUG PRINT(.\Listings\de
+                      mo.lst) OBJECT(.\Objects\demo.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                             ORG             0000H
+0000 0103              2                             AJMP    START
+0003                   3                             ORG             0003H
+                       4                             
+0003 C290              5     START:          CLR             P1.0
+0005 C297              6                             CLR     P1.7
+                       7                     
+0007 209004            8     LIGHT:          JB P1.0,LIGHT_ON
+000A C297              9                             CLR             P1.7
+000C 80F9             10                             SJMP    LIGHT
+                      11                     
+000E D297             12     LIGHT_ON:       SETB P1.7
+0010 80F5             13                             SJMP LIGHT
+                      14                             
+                      15                             END
+A51 MACRO ASSEMBLER  DEMO                                                                 02/19/2025 20:06:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LIGHT. . . . . . .  C ADDR   0007H   A   
+LIGHT_ON . . . . .  C ADDR   000EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0003H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

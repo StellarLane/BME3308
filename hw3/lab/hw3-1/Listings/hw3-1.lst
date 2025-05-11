@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  HW3_1                                                                03/04/2025 16:43:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw3-1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw3-1.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w3-1.lst) OBJECT(.\Objects\hw3-1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2             LJMP START
+0003                   3     ORG 0003H
+0003 020200            4             LJMP EINTO
+                       5     
+0100                   6     ORG 0100H
+0100                   7             START:
+0100 7830              8             MOV R0, #30H
+0102 7A08              9             MOV R2, #08H
+0104 D2AF             10             SETB EA
+0106 D288             11             SETB IT0
+0108 D2A8             12             SETB EX0
+                      13             
+010A                  14             LOOP:
+010A 900000           15             MOV DPTR, #000H
+010D F0               16             MOVX @DPTR, A
+010E 120113           17             LCALL DELAY
+0111 80ED             18             SJMP START
+                      19             
+0113                  20             DELAY:
+0113 7D50             21             MOV R5, #050H
+0115                  22             DELAY_2:
+0115 DDFE             23             DJNZ R5, DELAY_2
+0117 22               24             RET
+                      25             
+0200                  26     ORG 0200H
+0200                  27             EINTO:
+0200 E0               28             MOVX A, @DPTR
+0201 F6               29             MOV @R0, A
+0202 F590             30             MOV P1, A
+0204 A3               31             INC DPTR
+0205 08               32             INC R0
+0206 DA05             33             DJNZ R2, NEXT
+0208 C2AF             34             CLR EA
+020A C2A8             35             CLR EX0
+020C 32               36             RETI
+                      37             
+020D                  38             NEXT:
+020D F0               39             MOVX @DPTR, A
+020E 32               40             RETI
+                      41     
+                      42     END
+                                     
+A51 MACRO ASSEMBLER  HW3_1                                                                03/04/2025 16:43:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0113H   A   
+DELAY_2. . . . . .  C ADDR   0115H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EINTO. . . . . . .  C ADDR   0200H   A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+LOOP . . . . . . .  C ADDR   010AH   A   
+NEXT . . . . . . .  C ADDR   020DH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

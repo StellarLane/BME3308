@@ -1,0 +1,63 @@
+A51 MACRO ASSEMBLER  HW4_1_5                                                              03/30/2025 20:28:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw4-1-5.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw4-1-5.a51 SET(SMALL) DEBUG PRINT(.\Listings
+                      \hw4-1-5.lst) OBJECT(.\Objects\hw4-1-5.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2             
+  0030                 3     ADDR_A EQU 30H
+  0040                 4     ADDR_B EQU 40H
+  0050                 5     ADDR_C EQU 50H
+                       6             
+0000 020050            7     LJMP START
+                       8     
+0050                   9     ORG 0050H
+0050                  10             START:
+0050 753003           11             MOV ADDR_A, #03
+0053 754004           12             MOV ADDR_B, #04
+                      13             
+0056 E530             14             MOV A, ADDR_A
+0058 1162             15             ACALL SQR
+005A F8               16             MOV R0, A
+                      17             
+005B E540             18             MOV A, ADDR_B
+005D 1162             19             ACALL SQR
+                      20             
+005F 28               21             ADD A, R0
+0060 F550             22             MOV ADDR_C, A
+                      23             
+0062                  24             SQR:
+0062 900067           25             MOV DPTR, #TABLE
+0065 93               26             MOVC A, @A+DPTR
+0066 22               27             RET
+                      28             
+0067                  29             TABLE:
+0067 00010409         30             DB 0, 1, 4, 9, 16, 25, 36, 49
+006B 10192431                
+                      31     END
+                                     
+A51 MACRO ASSEMBLER  HW4_1_5                                                              03/30/2025 20:28:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADDR_A . . . . . .  N NUMB   0030H   A   
+ADDR_B . . . . . .  N NUMB   0040H   A   
+ADDR_C . . . . . .  N NUMB   0050H   A   
+SQR. . . . . . . .  C ADDR   0062H   A   
+START. . . . . . .  C ADDR   0050H   A   
+TABLE. . . . . . .  C ADDR   0067H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

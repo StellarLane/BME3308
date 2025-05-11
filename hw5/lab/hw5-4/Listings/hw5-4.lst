@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  HW5_4                                                                04/13/2025 16:28:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw5-4.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw5-4.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w5-4.lst) OBJECT(.\Objects\hw5-4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP MAIN
+                       3     
+000B                   4     ORG 000BH
+000B 02011B            5     LJMP RESET_TIMER_0
+                       6     
+0100                   7     ORG 0100H
+0100                   8             MAIN:
+0100 7400              9             MOV A, #00H
+0102 758951           10             MOV TMOD, #01010001B
+0105 758C3C           11             MOV TH0, #03CH
+0108 758AB0           12             MOV TL0, #0B0H
+                      13             
+010B 758D00           14             MOV TH1, #00H
+010E 758B00           15             MOV TL1, #00H
+                      16             
+0111 D28C             17             SETB TR0
+0113 D28E             18             SETB TR1
+                      19             
+0115 D2A9             20             SETB ET0
+0117 D2AF             21             SETB EA
+                      22             
+0119 80FE             23             SJMP $
+                      24             
+011B                  25             RESET_TIMER_0:
+011B 758C3C           26             MOV TH0, #3CH
+011E 758AB0           27             MOV TL0, #0B0H
+                      28             
+0121 04               29             INC A
+0122 B41409           30             CJNE A, #20, RESET_TIMER
+                      31              
+0125                  32             DONE:
+0125 C28E             33             CLR TR1
+0127 E58B             34             MOV A, TL1
+0129 120131           35             LCALL SHOW_LED
+012C 80FE             36             SJMP $
+                      37             
+012E                  38             RESET_TIMER:
+012E D28C             39             SETB TR0
+0130 32               40             RETI
+                      41             
+0131                  42             SHOW_LED:
+0131 75F00A           43             MOV B, #10
+0134 84               44             DIV AB
+0135 85F0A0           45             MOV P2, B
+0138 75F00A           46             MOV B, #10
+013B 84               47             DIV AB
+                      48             
+013C 7904             49             MOV R1, #4
+013E                  50             SHIFT:
+013E 23               51             RL A
+013F D9FD             52             DJNZ R1, SHIFT
+                      53             
+0141 45F0             54             ORL A, B
+0143 F590             55             MOV P1, A
+                      56             
+                      57     END
+A51 MACRO ASSEMBLER  HW5_4                                                                04/13/2025 16:28:10 PAGE     2
+
+                                     
+                                     
+A51 MACRO ASSEMBLER  HW5_4                                                                04/13/2025 16:28:10 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DONE . . . . . . .  C ADDR   0125H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+RESET_TIMER. . . .  C ADDR   012EH   A   
+RESET_TIMER_0. . .  C ADDR   011BH   A   
+SHIFT. . . . . . .  C ADDR   013EH   A   
+SHOW_LED . . . . .  C ADDR   0131H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

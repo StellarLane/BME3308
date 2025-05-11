@@ -1,0 +1,139 @@
+A51 MACRO ASSEMBLER  HW1_1                                                                03/01/2025 22:19:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw1-1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw1-1.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w1-1.lst) OBJECT(.\Objects\hw1-1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 02002C            2     LJMP MAIN
+                       3     
+0021                   4     ORG 0033
+                       5             
+0021                   6     TEST_FUNCTION:
+0021 C0E0              7             PUSH ACC
+0023 C0F0              8             PUSH B
+0025 A4                9             MUL AB
+0026 F8               10             MOV R0, A
+0027 D0F0             11             POP B
+0029 D0E0             12             POP ACC
+002B 22               13             RET
+                      14             
+002C                  15     MAIN:
+                      16     
+002C                  17     PROGCOUNT:
+002C 75D000           18             MOV PSW, #0000000B
+002F 7805             19             MOV R0, #05H
+0031 7903             20             MOV R1, #03H
+0033 75D008           21             MOV PSW, #00001000B
+0036 7806             22             MOV R0, #06H
+0038 7904             23             MOV R1, #04H
+003A D200             24             SETB 00H
+003C D207             25             SETB 07H
+                      26     
+003E                  27     STACK:
+003E 7403             28             MOV A, #03H
+0040 75F005           29             MOV B, #05H
+0043 1121             30             CALL TEST_FUNCTION
+0045 7412             31             MOV A, #12H
+0047 75F034           32             MOV B, #34H
+004A C0E0             33             PUSH ACC
+004C 7456             34             MOV A, #56H
+004E C0D0             35             PUSH PSW
+0050 D0F0             36             POP B
+0052 D0E0             37             POP ACC
+                      38             
+0054                  39     ADD_1_1:
+0054 7440             40             MOV A, #01000000B
+0056 75F040           41             MOV B, #01000000B
+0059 25F0             42             ADD A, B
+005B                  43     ADD_1_2:
+005B 7440             44             MOV A, #01000000B
+005D 75F0C0           45             MOV B, #11000000B
+0060 25F0             46             ADD A, B
+0062                  47     ADD_2:
+0062 7409             48             MOV A, #00001001B
+0064 75F00D           49             MOV B, #00001101B
+0067 25F0             50             ADD A, B
+0069                  51     ADD_3:
+0069 D2D7             52             SETB CY
+006B C2D2             53             CLR OV
+006D 747E             54             MOV A, #01111110B
+006F 75F001           55             MOV B, #00000001B
+0072 35F0             56             ADDC A, B
+                      57             
+A51 MACRO ASSEMBLER  HW1_1                                                                03/01/2025 22:19:25 PAGE     2
+
+0074                  58     SUB_1:
+0074 75D000           59             MOV PSW, #00H
+0077 7481             60             MOV A, #10000001B
+0079 75F001           61             MOV B, #00000001B
+007C 95F0             62             SUBB A, B
+007E                  63     SUB_2:
+007E 75D000           64             MOV PSW, #00H
+0081 D2D7             65             SETB CY
+0083 7481             66             MOV A, #10000001B
+0085 75F001           67             MOV B, #00000001B
+0088 95F0             68             SUBB A, B
+                      69             
+008A                  70     MUL_1:
+008A 75D000           71             MOV PSW, #00H
+008D 7401             72             MOV A, #00000001B
+008F 75F001           73             MOV B, #00000001B
+0092 A4               74             MUL AB
+0093                  75     MUL_2:
+0093 75D000           76             MOV PSW, #00H 
+0096 7480             77             MOV A, #10000000B
+0098 75F002           78             MOV B, #00000010B
+009B A4               79             MUL AB
+                      80             
+009C                  81     DIV_1:
+009C 75D000           82             MOV PSW, #00H
+009F 7481             83             MOV A, #10000001B
+00A1 75F002           84             MOV B, #00000010B
+00A4 84               85             DIV AB
+00A5                  86     DIV_2:
+00A5 75D000           87             MOV PSW, #00H
+00A8 74FF             88             MOV A, #11111111B
+00AA 75F000           89             MOV B, #00000000B
+00AD 84               90             DIV AB
+                      91             
+                      92     
+                      93     END
+                                     
+A51 MACRO ASSEMBLER  HW1_1                                                                03/01/2025 22:19:25 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ADD_1_1. . . . . .  C ADDR   0054H   A   
+ADD_1_2. . . . . .  C ADDR   005BH   A   
+ADD_2. . . . . . .  C ADDR   0062H   A   
+ADD_3. . . . . . .  C ADDR   0069H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+DIV_1. . . . . . .  C ADDR   009CH   A   
+DIV_2. . . . . . .  C ADDR   00A5H   A   
+MAIN . . . . . . .  C ADDR   002CH   A   
+MUL_1. . . . . . .  C ADDR   008AH   A   
+MUL_2. . . . . . .  C ADDR   0093H   A   
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+PROGCOUNT. . . . .  C ADDR   002CH   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+STACK. . . . . . .  C ADDR   003EH   A   
+SUB_1. . . . . . .  C ADDR   0074H   A   
+SUB_2. . . . . . .  C ADDR   007EH   A   
+TEST_FUNCTION. . .  C ADDR   0021H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

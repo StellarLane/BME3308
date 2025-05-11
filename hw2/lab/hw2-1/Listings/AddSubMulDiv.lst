@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  ADDSUBMULDIV                                                         03/01/2025 05:42:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\AddSubMulDiv.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE AddSubMulDiv.a51 SET(SMALL) DEBUG PRINT(.\Lis
+                      tings\AddSubMulDiv.lst) OBJECT(.\Objects\AddSubMulDiv.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020021            2     LJMP START
+                       3     
+0021                   4     ORG 0033
+0021                   5     START:
+                       6     
+0021                   7     ADD_1_1:
+0021 7440              8             MOV A, #01000000B
+0023 75F040            9             MOV B, #01000000B
+0026 25F0             10             ADD A, B
+0028                  11     ADD_1_2:
+0028 7440             12             MOV A, #01000000B
+002A 75F0C0           13             MOV B, #11000000B
+002D 25F0             14             ADD A, B
+002F                  15     ADD_2:
+002F 7409             16             MOV A, #00001001B
+0031 75F00D           17             MOV B, #00001101B
+0034 25F0             18             ADD A, B
+0036                  19     ADD_3:
+0036 D2D7             20             SETB CY
+0038 C2D2             21             CLR OV
+003A 747E             22             MOV A, #01111110B
+003C 75F001           23             MOV B, #00000001B
+003F 35F0             24             ADDC A, B
+                      25             
+0041                  26     SUB_1:
+0041 75D000           27             MOV PSW, #00H
+0044 7481             28             MOV A, #10000001B
+0046 75F001           29             MOV B, #00000001B
+0049 95F0             30             SUBB A, B
+004B                  31     SUB_2:
+004B 75D000           32             MOV PSW, #00H
+004E D2D7             33             SETB CY
+0050 7481             34             MOV A, #10000001B
+0052 75F001           35             MOV B, #00000001B
+0055 95F0             36             SUBB A, B
+                      37             
+0057                  38     MUL_1:
+0057 75D000           39             MOV PSW, #00H
+005A 7401             40             MOV A, #00000001B
+005C 75F001           41             MOV B, #00000001B
+005F A4               42             MUL AB
+0060                  43     MUL_2:
+0060 75D000           44             MOV PSW, #00H 
+0063 7480             45             MOV A, #10000000B
+0065 75F002           46             MOV B, #00000010B
+0068 A4               47             MUL AB
+                      48             
+0069                  49     DIV_1:
+0069 75D000           50             MOV PSW, #00H
+006C 7481             51             MOV A, #10000001B
+006E 75F002           52             MOV B, #00000010B
+0071 84               53             DIV AB
+0072                  54     DIV_2:
+0072 75D000           55             MOV PSW, #00H
+0075 74FF             56             MOV A, #11111111B
+0077 75F000           57             MOV B, #00000000B
+A51 MACRO ASSEMBLER  ADDSUBMULDIV                                                         03/01/2025 05:42:42 PAGE     2
+
+007A 84               58             DIV AB
+                      59     END
+                                     
+A51 MACRO ASSEMBLER  ADDSUBMULDIV                                                         03/01/2025 05:42:42 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD_1_1. . . . . .  C ADDR   0021H   A   
+ADD_1_2. . . . . .  C ADDR   0028H   A   
+ADD_2. . . . . . .  C ADDR   002FH   A   
+ADD_3. . . . . . .  C ADDR   0036H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+DIV_1. . . . . . .  C ADDR   0069H   A   
+DIV_2. . . . . . .  C ADDR   0072H   A   
+MUL_1. . . . . . .  C ADDR   0057H   A   
+MUL_2. . . . . . .  C ADDR   0060H   A   
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+START. . . . . . .  C ADDR   0021H   A   
+SUB_1. . . . . . .  C ADDR   0041H   A   
+SUB_2. . . . . . .  C ADDR   004BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  SEND                                                                 04/13/2025 18:26:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\SEND.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE SEND.a51 SET(SMALL) DEBUG PRINT(.\Listings\SE
+                      ND.lst) OBJECT(.\Objects\SEND.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP START
+                       3     
+0100                   4     ORG 0100H
+0100                   5             START:
+0100 754028            6             MOV 40H, #40
+0103 754129            7             MOV 41H, #41
+0106 75422A            8             MOV 42H, #42
+0109                   9             ASTART:
+0109 C2AF             10             CLR EA
+010B 758920           11             MOV TMOD, #20H
+010E 758DF4           12             MOV TH1, #0F4H
+0111 758700           13             MOV PCON, #00H
+0114 D28E             14             SETB TR1
+0116 759850           15             MOV SCON, #50H
+                      16             
+0119                  17             ALOOP1:
+0119 7599E1           18             MOV SBUF, #0E1H
+011C 3099FD           19             JNB TI, $
+011F C299             20             CLR TI
+0121 3098FD           21             JNB RI, $
+0124 C298             22             CLR RI
+0126 E599             23             MOV A, SBUF
+0128 64E2             24             XRL A, #0E2H
+012A 70ED             25             JNZ ALOOP1
+012C                  26             ALOOP2:
+012C 7840             27             MOV R0, #40H
+012E 7F10             28             MOV R7, #10H
+0130 7E00             29             MOV R6, #00H
+                      30             
+0132                  31             ALOOP3:
+0132 8699             32             MOV SBUF, @R0
+0134 EE               33             MOV A, R6
+0135 26               34             ADD A, @R0
+0136 FE               35             MOV R6, A
+0137 08               36             INC R0
+0138 3099FD           37             JNB TI, $
+013B C299             38             CLR TI
+013D E599             39             MOV A, SBUF
+013F 70EB             40             JNZ ALOOP2
+0141 80FE             41             SJMP $
+                      42     END
+A51 MACRO ASSEMBLER  SEND                                                                 04/13/2025 18:26:54 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ALOOP1 . . . . . .  C ADDR   0119H   A   
+ALOOP2 . . . . . .  C ADDR   012CH   A   
+ALOOP3 . . . . . .  C ADDR   0132H   A   
+ASTART . . . . . .  C ADDR   0109H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+PCON . . . . . . .  D ADDR   0087H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+START. . . . . . .  C ADDR   0100H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

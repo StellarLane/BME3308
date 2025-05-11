@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  HW3_6                                                                03/16/2025 00:04:13 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw3-6.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw3-6.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w3-6.lst) OBJECT(.\Objects\hw3-6.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020006            2     LJMP START
+                       3     
+0003 123456            4     TABLE: DB 0x12, 0x34, 0x56
+                       5     
+0006                   6     START:
+0006 900003            7         MOV DPTR, #TABLE      
+0009 7401              8         MOV A, #01H          
+000B 93                9         MOVC A, @A+DPTR     
+000C 7864             10             MOV R0, #100          
+000E                  11             DELAY: 
+000E D8FE             12         DJNZ R0, DELAY  
+                      13         ;MOV DPTR, #2000H     
+                      14         ;MOVX @DPTR, A        
+                      15             ;SJMP START        
+                      16     END
+A51 MACRO ASSEMBLER  HW3_6                                                                03/16/2025 00:04:13 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   000EH   A   
+START. . . . . . .  C ADDR   0006H   A   
+TABLE. . . . . . .  C ADDR   0003H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,1 @@
+"blink.a51" SET (SMALL) DEBUG PRINT(.\Listings\blink.lst) OBJECT(.\Objects\blink.obj) EP

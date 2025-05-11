@@ -1,0 +1,120 @@
+A51 MACRO ASSEMBLER  HW5_1                                                                04/08/2025 10:43:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\hw5-1.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE hw5-1.a51 SET(SMALL) DEBUG PRINT(.\Listings\h
+                      w5-1.lst) OBJECT(.\Objects\hw5-1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 020100            2     LJMP INIT
+                       3     
+0100                   4     ORG 0100H
+0100                   5             INIT:
+0100 759850            6             MOV SCON, #01010000B
+0103 758920            7             MOV TMOD, #00100000B
+0106 758DFD            8             MOV TH1, #0FDH
+0109 758BFD            9             MOV TL1, #0FDH
+010C D28E             10             SETB TR1
+                      11             
+010E                  12             MAIN:
+010E 3119             13             ACALL READ_KEYBOARD
+0110 F599             14             MOV SBUF, A
+0112 3099FD           15             JNB TI, $
+0115 C299             16             CLR TI
+0117 80F5             17             SJMP MAIN
+0119                  18             READ_KEYBOARD:
+0119 75A0FF           19             MOV P2, #11111111B
+011C C2A0             20             CLR P2.0                
+011E 30A326           21             JNB P2.3, PRESS_1
+0121 30A42C           22             JNB P2.4, PRESS_4
+0124 30A532           23             JNB P2.5, PRESS_7
+0127 D2A0             24             SETB P2.0
+                      25             
+0129 C2A1             26             CLR P2.1
+012B 30A31C           27             JNB P2.3, PRESS_2
+012E 30A422           28             JNB P2.4, PRESS_5
+0131 30A528           29             JNB P2.5, PRESS_8
+0134 30A62B           30             JNB P2.6, PRESS_0
+0137 D2A1             31             SETB P2.1
+                      32             
+0139 C2A2             33             CLR P2.2
+013B 30A30F           34             JNB P2.3, PRESS_3
+013E 30A415           35             JNB P2.4, PRESS_6
+0141 30A51B           36             JNB P2.5, PRESS_9
+0144 D2A2             37             SETB P2.2
+                      38             
+0146 22               39             RET
+                      40             
+0147                  41             PRESS_1:
+0147 7401             42             MOV A, #01H
+0149 22               43             RET
+014A                  44             PRESS_2:
+014A 7402             45             MOV A, #02H
+014C 22               46             RET
+014D                  47             PRESS_3:
+014D 7403             48             MOV A, #03H
+014F 22               49             RET
+0150                  50             PRESS_4:
+0150 7404             51             MOV A, #04H
+0152 22               52             RET
+0153                  53             PRESS_5:
+0153 7405             54             MOV A, #05H
+0155 22               55             RET
+0156                  56             PRESS_6:
+0156 7406             57             MOV A, #06H
+A51 MACRO ASSEMBLER  HW5_1                                                                04/08/2025 10:43:19 PAGE     2
+
+0158 22               58             RET
+0159                  59             PRESS_7:
+0159 7407             60             MOV A, #07H
+015B 22               61             RET
+015C                  62             PRESS_8:
+015C 7408             63             MOV A, #08H
+015E 22               64             RET
+015F                  65             PRESS_9:
+015F 7409             66             MOV A, #09H
+0161 22               67             RET
+0162                  68             PRESS_0:
+0162 7400             69             MOV A, #00H
+0164 22               70             RET
+                      71             
+                      72     END
+                                     
+A51 MACRO ASSEMBLER  HW5_1                                                                04/08/2025 10:43:19 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+INIT . . . . . . .  C ADDR   0100H   A   
+MAIN . . . . . . .  C ADDR   010EH   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PRESS_0. . . . . .  C ADDR   0162H   A   
+PRESS_1. . . . . .  C ADDR   0147H   A   
+PRESS_2. . . . . .  C ADDR   014AH   A   
+PRESS_3. . . . . .  C ADDR   014DH   A   
+PRESS_4. . . . . .  C ADDR   0150H   A   
+PRESS_5. . . . . .  C ADDR   0153H   A   
+PRESS_6. . . . . .  C ADDR   0156H   A   
+PRESS_7. . . . . .  C ADDR   0159H   A   
+PRESS_8. . . . . .  C ADDR   015CH   A   
+PRESS_9. . . . . .  C ADDR   015FH   A   
+READ_KEYBOARD. . .  C ADDR   0119H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

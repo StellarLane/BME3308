@@ -1,0 +1,100 @@
+A51 MACRO ASSEMBLER  KEYBOARD                                                             03/02/2025 01:32:35 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\keyboard.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE keyboard.a51 SET(SMALL) DEBUG PRINT(.\Listing
+                      s\keyboard.lst) OBJECT(.\Objects\keyboard.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 0140              2     AJMP START
+                       3     
+0040                   4     ORG 0040H
+0040                   5     START:   
+0040 758000            6             MOV P0, #00H
+0043                   7     TEST:     
+0043 75A0FF            8             MOV P2, #0FFH
+                       9             
+0046 C2A3             10         CLR P2.3
+0048 30A230           11                     JNB P2.2, NUM1
+004B 30A132           12                     JNB P2.1, NUM2
+004E 30A034           13                     JNB P2.0, NUM3
+0051 D2A3             14         SETB P2.3
+0053 C2A4             15         CLR P2.4
+0055 30A232           16                     JNB P2.2, NUM4
+0058 30A134           17             JNB P2.1, NUM5
+005B 30A036           18             JNB P2.0, NUM6
+005E D2A4             19         SETB P2.4
+0060 C2A5             20         CLR P2.5
+0062 30A234           21             JNB P2.2, NUM7
+0065 30A136           22             JNB P2.1, NUM8
+0068 30A038           23             JNB P2.0, NUM9
+006B D2A5             24         SETB P2.5
+006D C2A6             25         CLR P2.6
+006F 30A104           26              JNB P2.1, NUM0
+0072 D2A6             27             SETB P2.6
+0074 80CD             28         SJMP TEST
+                      29             
+0076                  30     NUM0:     
+0076 75803F           31             MOV P0,#3FH
+0079 80C8             32         SJMP TEST
+007B                  33     NUM1:     
+007B 758006           34             MOV P0,#06H
+007E 80C3             35         SJMP TEST         
+0080                  36     NUM2:     
+0080 75805B           37             MOV P0,#5BH
+0083 80BE             38         SJMP TEST
+0085                  39     NUM3:     
+0085 75804F           40             MOV P0,#4FH
+0088 80B9             41         SJMP TEST
+008A                  42     NUM4:     
+008A 758066           43             MOV P0,#66H
+008D 80B4             44         SJMP TEST
+008F                  45     NUM5:     
+008F 75806D           46             MOV P0,#6DH
+0092 80AF             47         SJMP TEST
+0094                  48     NUM6:     
+0094 75807D           49             MOV P0,#7DH
+0097 80AA             50         SJMP TEST
+0099                  51     NUM7:     
+0099 758007           52             MOV P0,#07H
+009C 80A5             53             SJMP TEST
+009E                  54     NUM8:
+009E 75807F           55             MOV P0,#7FH
+00A1 80A0             56         SJMP TEST
+00A3                  57     NUM9:     
+A51 MACRO ASSEMBLER  KEYBOARD                                                             03/02/2025 01:32:35 PAGE     2
+
+00A3 75806F           58             MOV P0,#6FH
+00A6 809B             59         SJMP TEST
+                      60     END
+A51 MACRO ASSEMBLER  KEYBOARD                                                             03/02/2025 01:32:35 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+NUM0 . . . . . . .  C ADDR   0076H   A   
+NUM1 . . . . . . .  C ADDR   007BH   A   
+NUM2 . . . . . . .  C ADDR   0080H   A   
+NUM3 . . . . . . .  C ADDR   0085H   A   
+NUM4 . . . . . . .  C ADDR   008AH   A   
+NUM5 . . . . . . .  C ADDR   008FH   A   
+NUM6 . . . . . . .  C ADDR   0094H   A   
+NUM7 . . . . . . .  C ADDR   0099H   A   
+NUM8 . . . . . . .  C ADDR   009EH   A   
+NUM9 . . . . . . .  C ADDR   00A3H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0040H   A   
+TEST . . . . . . .  C ADDR   0043H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,84 @@
+A51 MACRO ASSEMBLER  BLINK                                                                02/23/2025 19:20:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\blink.obj
+ASSEMBLER INVOKED BY: C:\Users\stell\AppData\Local\Keil_v5\C51\BIN\A51.EXE blink.a51 SET(SMALL) DEBUG PRINT(.\Listings\b
+                      link.lst) OBJECT(.\Objects\blink.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0H
+0000                   2     START:
+0000 00                3             NOP
+0001 D8FD              4             DJNZ R0, START
+0003 7590FF            5             MOV P1, #11111111B
+0006 78FF              6             MOV R0, #0XFF
+0008                   7     DELAY0:
+0008 00                8             NOP
+0009 D8FD              9             DJNZ R0, DELAY0
+000B 78FF             10             MOV R0, #0XFF
+000D 759001           11             MOV P1, #00000001B
+0010 78FF             12             MOV R0, #0XFF
+0012                  13     DELAY1:
+0012 00               14             NOP
+0013 D8FD             15             DJNZ R0, DELAY1
+0015 759002           16             MOV P1, #00000010B
+0018 78FF             17             MOV R0, #0XFF
+001A                  18     DELAY2:
+001A 00               19             NOP
+001B D8FD             20             DJNZ R0, DELAY2
+001D 759004           21             MOV P1, #00000100B
+0020 78FF             22             MOV R0, #0XFF
+0022                  23     DELAY3:
+0022 00               24             NOP
+0023 D8FD             25             DJNZ R0, DELAY3
+0025 759008           26             MOV P1, #00001000B
+0028 78FF             27             MOV R0, #0XFF
+002A                  28     DELAY4:
+002A 00               29             NOP
+002B D8FD             30             DJNZ R0, DELAY4
+002D 759010           31             MOV P1, #00010000B
+0030 78FF             32             MOV R0, #0XFF
+0032                  33     DELAY5:
+0032 00               34             NOP
+0033 D8FD             35             DJNZ R0, DELAY5
+0035 759020           36             MOV P1, #00100000B
+0038 78FF             37             MOV R0, #0XFF
+003A                  38     DELAY6:
+003A 00               39             NOP
+003B D8FD             40             DJNZ R0, DELAY6
+003D 759040           41             MOV P1, #01000000B
+0040 78FF             42             MOV R0, #0XFF
+0042                  43     DELAY7:
+0042 00               44             NOP
+0043 D8FD             45             DJNZ R0, DELAY7
+0045 759080           46             MOV P1, #10000000B
+0048 020008           47             LJMP DELAY0
+004B 78FF             48             MOV R0, #0XFF
+                      49     
+                      50     END
+A51 MACRO ASSEMBLER  BLINK                                                                02/23/2025 19:20:42 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY0 . . . . . .  C ADDR   0008H   A   
+DELAY1 . . . . . .  C ADDR   0012H   A   
+DELAY2 . . . . . .  C ADDR   001AH   A   
+DELAY3 . . . . . .  C ADDR   0022H   A   
+DELAY4 . . . . . .  C ADDR   002AH   A   
+DELAY5 . . . . . .  C ADDR   0032H   A   
+DELAY6 . . . . . .  C ADDR   003AH   A   
+DELAY7 . . . . . .  C ADDR   0042H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
